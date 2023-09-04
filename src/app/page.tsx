@@ -1,14 +1,15 @@
-import Image from 'next/image'
-import Link from 'next/link'
+import UserBox from '@/components/UserBox'
+import UserList from '@/components/UserList'
+import { Suspense } from 'react'
 
-export default function Home() {
+export default async function Home() {
+
   return (
-    <main className="flex min-h-screen flex-col p-24">
-      <Link href="/api/auth/signin">
-        <div className="flex items-center justify-center px-4 py-2 border border-black">
-          <span>Sign In</span>
-        </div>
-      </Link>
+    <main className="flex flex-col items-center w-full space-y-12">
+      <UserBox />
+      <Suspense fallback={<div>Loading...</div>}>
+        <UserList />
+      </Suspense>
     </main>
   )
 }
