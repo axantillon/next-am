@@ -11,7 +11,7 @@ interface AskInputProps {
 
 const AskInput: FC<AskInputProps> = ({ user }) => {
 
-    const { answer, loading, askQuestion } = useHF(user.bio!!);
+    const { answer, loading, askQuestion } = useHF(user.bio!!, user.email!!);
     const [question, setQuestion] = useState('');
 
 

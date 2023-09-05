@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export const useHF = (bio: string) => {
+export const useHF = (bio: string, userEmail: string) => {
   const [answer, setAnswer] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -13,6 +13,7 @@ export const useHF = (bio: string) => {
           body: JSON.stringify({
             question,
             context: bio,
+            userEmail,
           }),
         })
 

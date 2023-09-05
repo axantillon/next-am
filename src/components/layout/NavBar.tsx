@@ -1,9 +1,9 @@
+import getUser from '@/server/helpers/getUser';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { FC } from 'react';
 import UserProfile from '../misc/UserProfile';
 import { Button } from '../ui/button';
-import getUser from '@/server/helpers/getUser';
 
 interface NavBarProps {
   className: string;
@@ -16,9 +16,9 @@ const NavBar: FC<NavBarProps> = async ({ className }) => {
 
     return (
         <div className={`flex items-center justify-between w-full ${className}`}>
-            <div className="">
-
-            </div>
+            <Link href="/">
+                <span className="text-2xl font-bold">Answering Machine</span>
+            </Link>
 
             {user && user ? 
                 <UserProfile user={user} className=" w-48 h-14 rounded-lg" />

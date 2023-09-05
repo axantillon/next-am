@@ -11,7 +11,7 @@ interface UserListProps {
 
 const UserList: FC<UserListProps> = async ({  }) => {
 
-    const users = await prisma.user.findMany();
+    const users = (await prisma.user.findMany()).filter(u => u.email !== 'anonymous@hehe.com');
 
     return (
         <div className={'flex flex-wrap'}>
