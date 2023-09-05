@@ -1,4 +1,4 @@
-import { prisma } from "@/server/prisma";
+import prisma from "@/server/prisma";
 import { NextAuthOptions } from "next-auth";
 import GoogleProvider from "next-auth/providers/google";
 
@@ -17,7 +17,6 @@ export const authOptions: NextAuthOptions = {
 
   callbacks: {
     async signIn({ user }) {
-
       try {
         await prisma.user.upsert({
           where: {
@@ -30,7 +29,7 @@ export const authOptions: NextAuthOptions = {
           create: {
             ...user,
             email: user.email ? user.email : "",
-          }
+          },
         });
       } catch (error) {
         console.log(error);

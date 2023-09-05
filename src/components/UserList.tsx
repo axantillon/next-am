@@ -1,9 +1,9 @@
-import { prisma } from '@/server/prisma';
+import prisma from '@/server/prisma';
+import Link from 'next/link';
 import { FC } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Card } from './ui/card';
 import { Button } from './ui/button';
-import Link from 'next/link';
+import { Card } from './ui/card';
 
 interface UserListProps {
   

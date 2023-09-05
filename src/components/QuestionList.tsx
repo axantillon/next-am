@@ -1,4 +1,4 @@
-import { prisma } from '@/server/prisma';
+import prisma from '@/server/prisma';
 import { DateTime } from "luxon";
 import Link from 'next/link';
 import { FC, cache } from 'react';
