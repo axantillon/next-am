@@ -17,15 +17,15 @@ const NavBar: FC<NavBarProps> = async ({ className }) => {
     return (
         <div className={`flex items-center justify-between w-full ${className}`}>
             <Link href="/">
-                <span className="text-2xl font-bold">Answering Machine</span>
+                <span className="text-base sm:text-2xl font-bold">Answering Machine</span>
             </Link>
 
             {user && user ? 
-                <UserProfile user={user} className=" w-48 h-14 rounded-lg" />
+                <UserProfile user={user} className="w-36 h-12 sm:w-48 sm:h-14 rounded-lg" />
                 
             :
                <Link href="/api/auth/signin">
-                    <Button variant={'outline'} className="w-48 h-14 flex items-center justify-center rounded-lg">
+                    <Button variant={'outline'} className="w-36 h-12 sm:w-48 sm:h-14 flex items-center justify-center rounded-lg">
                         <span>Sign In</span>
                     </Button>
                 </Link>

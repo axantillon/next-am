@@ -17,7 +17,7 @@ const AskInput: FC<AskInputProps> = ({ user }) => {
 
     return (
         <div className={'w-full h-full'}>
-            <div className="flex items-center justify-between space-x-8">
+            <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between space-y-2 sm:space-x-8">
                 <Input disabled={!user.bio} placeholder='Ask me anything!' value={question} onChange={(e) => setQuestion(e.target.value)} />
                 <Button onClick={() => askQuestion(question)} className='w-20 h-10'>Ask</Button> 
             </div>

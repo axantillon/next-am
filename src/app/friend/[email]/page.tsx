@@ -11,7 +11,7 @@ export default function Page({params} : {params: {email: string}}) {
             <Link href="/">
                 <span>{"<-- Go Back"}</span>
             </Link>
-            <div className="flex flex-col items-center w-full space-y-12 pb-8">
+            <div className="flex flex-col items-center w-full space-y-12 pt-2 sm:pt-0 pb-8">
                 <UserBox userEmail={params.email} />
                 <Suspense fallback={<div>Loading...</div>}>
                     <QuestionList userEmail={params.email} />

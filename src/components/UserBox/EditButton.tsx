@@ -13,7 +13,7 @@ const EditButton: FC<EditButtonProps> = ({ user }) => {
         <Dialog>
             <DialogTrigger asChild>
                 <Button>
-                    <span>Edit Profile</span>
+                    <span className='text-xs sm:text-sm'>Edit Profile</span>
                 </Button>
             </DialogTrigger>
             <DialogContent>

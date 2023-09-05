@@ -5,7 +5,7 @@ import { Suspense } from 'react'
 export default async function Home() {
 
   return (
-    <main className="flex flex-col items-center w-full space-y-12">
+    <main className="flex flex-col items-center w-full space-y-4 sm:space-y-12">
       <UserBox />
       <Suspense fallback={<div>Loading...</div>}>
         <UserList />

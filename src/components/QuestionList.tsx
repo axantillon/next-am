@@ -26,7 +26,7 @@ const QuestionList: FC<QuestionListProps> = async ({ userEmail }) => {
     return (
         <div className="w-full flex flex-col items-center space-y-4">
             {questions.map((q, i) => (
-                <Card key={i} className='flex flex-col w-1/2 max-w-[450px] h-48'>
+                <Card key={i} className='flex flex-col w-full sm:w-1/2 max-w-[450px] h-52 sm:h-48'>
                     <CardHeader>
                         <CardTitle>
                             {q.question}
