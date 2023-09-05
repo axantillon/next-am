@@ -1,4 +1,4 @@
-import { handler } from "@/server/prisma";
+import { prisma } from "@/server/prisma";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function POST(
@@ -8,8 +8,13 @@ export async function POST(
   const res = await request.json();
 
   try {
-    const user = await handler().updateUser(params.email, {
-      ...res,
+    const user = await prisma.user.update({
+      where: {
+        email: params.email,
+      },
+      data: {
+        ...res,
+      },
     });
     return NextResponse.json(user);
   } catch (e) {
