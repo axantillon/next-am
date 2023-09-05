@@ -1,9 +1,9 @@
-import { prisma } from '@/server/prisma';
+import { handler } from '@/server/prisma';
+import Link from 'next/link';
 import { FC } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from './ui/avatar';
-import { Card } from './ui/card';
 import { Button } from './ui/button';
-import Link from 'next/link';
+import { Card } from './ui/card';
 
 interface UserListProps {
   
@@ -11,7 +11,7 @@ interface UserListProps {
 
 const UserList: FC<UserListProps> = async ({  }) => {
 
-    const users = (await prisma.user.findMany()).filter(u => u.email !== 'anonymous@hehe.com');
+    const users = (await handler().getAllUsers()).filter(u => u.email !== 'anonymous@hehe.com');
 
     return (
         <div className={'flex flex-col sm:flex-row flex-wrap'}>

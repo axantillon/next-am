@@ -14,7 +14,6 @@ interface EditDialogProps {
 const EditDialog: FC<EditDialogProps> = ({user}) => {
 
     const [userBio, setUserBio] = useState(user.bio || '');
-    const [userName, setUserName] = useState(user.name || '');
     const [saving, setSaving] = useState(false);
 
     const handleSubmit = async () => {
@@ -23,7 +22,6 @@ const EditDialog: FC<EditDialogProps> = ({user}) => {
             const res = await fetch(`/api/user/${user.email}`, {
                 method: 'POST',
                 body: JSON.stringify({
-                    name: userName,
                     bio: userBio
                 })
             })

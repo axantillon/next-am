@@ -1,4 +1,4 @@
-import { prisma } from '@/server/prisma';
+import { handler } from "@/server/prisma";
 import { DateTime } from "luxon";
 import Link from 'next/link';
 import { FC, cache } from 'react';
@@ -11,11 +11,7 @@ interface QuestionListProps {
 const revalidate = 30; 
 
 const getQuestions = cache(async(userEmail: string) => {
-    const questions = await prisma.question.findMany({
-        where: {
-            userEmail
-        }
-    })
+    const questions = await handler().getQuestions(userEmail)
     return questions
 })
 
