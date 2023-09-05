@@ -1,4 +1,4 @@
-import { handler } from '@/server/prisma';
+import getUser from '@/server/helpers/getUser';
 import { getServerSession } from 'next-auth';
 import { FC } from 'react';
 import { Avatar, AvatarFallback, AvatarImage } from '../ui/avatar';
@@ -20,7 +20,7 @@ const UserBox: FC<indexProps> = async ({ userEmail }) => {
         </Card>
     )
 
-    const user = userEmail ? await handler().getUser(userEmail) : await handler().getUser(session?.user?.email!!);
+    const user = userEmail ? await getUser(userEmail) : await getUser(session?.user?.email!!);
 
     if (!user) return (
         <Card className='w-full sm:w-2/3 h-60 items-center justify-center'>

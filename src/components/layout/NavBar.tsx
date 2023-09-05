@@ -1,4 +1,4 @@
-import { handler } from '@/server/prisma';
+import getUser from '@/server/helpers/getUser';
 import { getServerSession } from 'next-auth';
 import Link from 'next/link';
 import { FC } from 'react';
@@ -12,7 +12,7 @@ interface NavBarProps {
 const NavBar: FC<NavBarProps> = async ({ className }) => {
 
     const session = await getServerSession();
-    const user = await handler().getUser(session?.user?.email!!)
+    const user = await getUser(session?.user?.email!!)
 
     return (
         <div className={`flex items-center justify-between w-full ${className}`}>
